@@ -1,0 +1,36 @@
+# Local build workspaces and Android/Gradle output
+.local/
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Credentials, signing material, and generated app packages
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.apk
+*.aab
+*.idsig
+*.dex
+*.class
+
+# Ticket imports and device/session diagnostics never belong in this repo
+*.pdf
+incoming/
+ticket-inbox/
+tickets/
+*session*.json
+*-ui.xml
+adb*.log

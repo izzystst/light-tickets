@@ -1,0 +1,11 @@
+{
+  "full_screen_viewport_pixels": {
+    "width": 1080,
+    "height": 1094
+  },
+  "full_screen_back_control": "pass",
+  "back_returns_to_ticket_view": "pass",
+  "return_to_full_screen": "pass",
+  "user_visual_confirmation": "pass",
+  "optical_scan_of_new_view": "pending"
+}

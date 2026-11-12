@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dev.steelthread.lighttickets.library.checks">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34" />
+    <instrumentation android:name="dev.steelthread.lighttickets.library.checks.PreviewChecks" android:targetPackage="dev.steelthread.lighttickets.library" android:label="Light Tickets preview checks" />
+    <application android:label="Preview checks" android:allowBackup="false" />
+</manifest>

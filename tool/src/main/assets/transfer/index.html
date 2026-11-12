@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Send to Light Tickets</title><link rel="stylesheet" href="/style.css"></head>
+<body><main><div class="brand">LIGHT TICKETS</div><h1>Send a ticket.</h1><p class="intro">Save a PDF or ticket image on your Light Phone.</p>
+<section id="pair"><form id="pair-form"><label for="code">Pairing code on your Light Phone</label><input id="code" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]{6}" minlength="6" maxlength="6" required placeholder="000000"><button id="connect" type="submit">Connect</button></form></section>
+<section id="send" hidden><label for="ticket">Choose your ticket</label><input id="ticket" type="file" accept="application/pdf,image/png,image/jpeg,image/webp,.pdf,.png,.jpg,.jpeg,.webp"><p id="filename">PDF, PNG, JPEG, or WebP · Up to 20 MB</p><button id="upload" type="button" disabled>Send to Light Phone</button></section>
+<p id="status" role="status" aria-live="polite"></p><p class="privacy">Keep Light Tickets open on your phone. Use a trusted private Wi-Fi network: this local transfer is not encrypted. The file goes directly to your Light Phone, where you confirm Save.</p><p class="footer">No account or app needed on this device.</p></main><script>'use strict';
+const element=id=>document.getElementById(id);
+let key=new URLSearchParams(location.hash.slice(1)).get('key')||'';
+history.replaceState(null,'',location.pathname);
+let sent=false, polling=false;
+const say=text=>{element('status').textContent=text;};
+function connected(){element('pair').hidden=true;element('send').hidden=false;say('Connected. Choose a ticket to send.');}
+async function request(path,options={}){
+  const response=await fetch(path,{...options,cache:'no-store',headers:{...(key?{'Authorization':'Bearer '+key}:{}),...(options.headers||{})}});
+  if(!response.ok)throw new Error(await response.text()||'Transfer could not complete.');
+  return response.json();
+}
+async function monitor(){
+  if(polling)return;polling=true;
+  try{
+    while(true){
+      const result=await request('/status');
+      if(result.status==='saved'){say('Saved on your Light Phone. You can close this page.');break;}
+      if(result.status==='rejected'){say('The file was not saved. Start another session on your Light Phone to try again.');break;}
+      if(result.status==='closed'){say('Receiving ended. Check your Light Phone.');break;}
+      await new Promise(resolve=>setTimeout(resolve,1000));
+    }
+  }catch(e){say('Connection closed. Check your Light Phone to see whether the ticket was saved.');}
+}
+element('pair-form').addEventListener('submit',async event=>{
+  event.preventDefault();element('connect').disabled=true;say('Connecting…');
+  try{const result=await request('/pair',{method:'POST',headers:{'Content-Type':'text/plain'},body:element('code').value.trim()});key=result.key;element('code').value='';connected();}
+  catch(e){say(e.message||'Could not connect. Keep both devices on the same Wi-Fi.');}
+  finally{element('connect').disabled=false;}
+});
+element('ticket').addEventListener('change',()=>{
+  const file=element('ticket').files[0];
+  element('filename').textContent=file?file.name+' · '+(file.size/1048576).toFixed(1)+' MB':'PDF, PNG, JPEG, or WebP · Up to 20 MB';
+  element('upload').disabled=sent||!file||file.size<1||file.size>20971520;
+  if(file&&file.size>20971520)say('Choose a file smaller than 20 MB.');
+});
+element('upload').addEventListener('click',async()=>{
+  const file=element('ticket').files[0];if(!file||sent)return;
+  element('upload').disabled=true;element('ticket').disabled=true;say('Sending… Keep this page open.');
+  try{
+    await request('/upload',{method:'POST',headers:{'Content-Type':'application/octet-stream','X-Ticket-Name':encodeURIComponent(file.name)},body:file});
+    sent=true;say('Sent. Tap Save on your Light Phone to keep this ticket.');monitor();
+  }catch(e){say(e.message||'Connection lost. Check the Light Phone, then try a new session.');}
+});
+if(key){request('/status').then(connected).catch(()=>say('This connection has expired. Start a new session on your Light Phone.'));}
+</script></body></html>

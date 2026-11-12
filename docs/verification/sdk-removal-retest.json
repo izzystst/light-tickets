@@ -1,0 +1,9 @@
+{
+  "version": "0.4.2",
+  "practice_ticket_only": true,
+  "confirmation_shown": "pass",
+  "removal_returns_to_shelf": "pass",
+  "removed_demo_absent_from_list": "pass",
+  "practice_ticket_restored_and_opened": "pass",
+  "finished_on_ticket_list": "pass"
+}
