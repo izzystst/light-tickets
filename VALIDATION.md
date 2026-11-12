@@ -19,3 +19,5 @@ The host and native data-path checks were run during the 0.4.0 migration; those 
 Lint warnings concern the SDK-generated manifest's missing application icon and an optional Kotlin bitmap helper. Optimized compilation passed for 0.4.1 with the SDK metadata warnings described in [KNOWN_ISSUES.md](KNOWN_ISSUES.md). Optimized 0.4.2 compilation and runtime testing are pending.
 
 Sanitized records are under [docs/verification](docs/verification/). The included screenshots show only the dummy practice ticket. The app and tests make no claim to validate an issuer's ticket or an event's admission policy.
+
+Submission candidate 0.4.3 updates to SDK 0.2.7 and application ID `io.github.izzystst.lighttickets`. Ticket handling and display code are unchanged from the tested preview; the instrumentation target has been aligned to the new ID. Candidate 0.4.3 debug compilation, current SDK source/dependency validation, and Android lint passed on SDK 0.2.7 (zero errors, two warnings). The new application identifier has not been installed on the phone.

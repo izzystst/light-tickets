@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 SDK_URL = "https://github.com/lightphone/light-sdk.git"
-SDK_COMMIT = "2f02ecd65891df4657c0291b1dc378f219a4362b"
+SDK_COMMIT = "e81295e6bc29f987c44c656fdf5081117bbee833"
 ROOT = Path(__file__).resolve().parents[1]
 
 

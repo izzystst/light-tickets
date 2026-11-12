@@ -1,8 +1,8 @@
 [tool]
-id = "dev.steelthread.lighttickets.library"
-label = "Light Tickets Preview"
-versionCode = 3
-versionName = "0.4.2"
+id = "io.github.izzystst.lighttickets"
+label = "Light Tickets"
+versionCode = 4
+versionName = "0.4.3"
 permissions = ["android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"]
 capabilities = []
 serverPackage = "com.lightos"

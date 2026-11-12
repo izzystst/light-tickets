@@ -1,11 +1,11 @@
 # Building Light Tickets
 
-The public source tree is deliberately small. Light builds the `tool/` module against its own SDK; `gradle.properties` selects SDK **0.2.3**.
+The public source tree is deliberately small. Light builds the `tool/` module against its own SDK; `gradle.properties` selects SDK **0.2.7**.
 
 The tested SDK source commit is:
 
 ```
-2f02ecd65891df4657c0291b1dc378f219a4362b
+e81295e6bc29f987c44c656fdf5081117bbee833
 ```
 
 ## Local build
@@ -50,7 +50,7 @@ The check APK and target APK must have the same signer. Native checks use genera
 
 Light's builder reads root `gradle.properties`, `tool/lighttool.toml`, `tool/build.gradle.kts`, and `tool/src/main/`. It supplies the SDK and build environment. The app has Kotlin production sources and no handwritten production Android manifest. The Java and manifest files under `verification/` are separate test helpers.
 
-Before registering a tool, review its permanent package identifier; Light does not allow changing it afterward. The current preview ID is `dev.steelthread.lighttickets.library`.
+Before registering a tool, review its permanent package identifier; Light does not allow changing it afterward. The submission ID is `io.github.izzystst.lighttickets`, aligned with the owner’s GitHub username. The on-phone development preview uses a separate earlier identifier.
 
 Official references:
 

@@ -5,7 +5,7 @@ The MIT license for Light Tickets does not replace these components' licenses.
 ## Light SDK
 
 - Source: <https://github.com/lightphone/light-sdk>
-- Tested SDK: 0.2.3, commit `2f02ecd65891df4657c0291b1dc378f219a4362b`.
+- Submission SDK: 0.2.7, commit `e81295e6bc29f987c44c656fdf5081117bbee833`. Earlier phone tests used SDK 0.2.3.
 - License: MIT, copyright © 2026 The Light Phone.
 - Notice: [LIGHT-SDK-LICENSE.txt](LIGHT-SDK-LICENSE.txt).
 

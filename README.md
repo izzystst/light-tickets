@@ -2,7 +2,7 @@
 
 An offline holder for ticket PDFs and static ticket images on Light Phone III.
 
-This is a community preview, version **0.4.2**. It is not an official Light app and has not been approved for the Tool Library.
+This is a community preview, version **0.4.3**. It is not an official Light app and has not been approved for the Tool Library.
 
 <img src="docs/screenshots/preview-full-screen.png" width="324" alt="A dummy event ticket in full-screen view, with a visible Back button">
 
