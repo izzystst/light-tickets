@@ -4,6 +4,8 @@ An offline holder for ticket PDFs and static ticket images on Light Phone III.
 
 This is a community preview, version **0.4.3**. It is not an official Light app and has not been approved for the Tool Library.
 
+**Try the beta:** [Download the APK](https://github.com/izzystst/light-tickets/releases/tag/v0.4.3) and follow the [simple sideloading instructions](SIDELOADING.md). A computer and USB data cable are needed for installation; saved tickets work unplugged. Approval was still pending on November 14, 2026.
+
 <img src="docs/screenshots/preview-full-screen.png" width="324" alt="A dummy event ticket in full-screen view, with a visible Back button">
 
 ## What it does

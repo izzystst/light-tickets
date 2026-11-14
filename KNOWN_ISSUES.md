@@ -7,7 +7,9 @@ Version 0.4.3 is an SDK preview. It updates the submission to SDK 0.2.7 and adop
 3. **Brightness:** keeping a ticket awake is implemented. Temporarily increasing and restoring screen brightness is not.
 4. **USB import:** the standalone prototype's USB inbox is not implemented in this SDK preview. Wireless import is available.
 5. **Release toolkit warnings:** optimized builds of 0.4.0 and 0.4.1 completed with Kotlin-metadata parsing warnings from the SDK-pinned R8 version. No SDK restrictions or dependency pins were modified to hide the warnings. The optimized 0.4.2 build has not been run.
-6. **Final release tests:** the newest full-screen view has visual and navigation checks, but a fresh optical scan of that view and venue acceptance have not been tested. An optimized release APK has not been run on the phone.
+6. **Venue acceptance:** the Light-built 0.4.3 release APK passed 25 phone checks and a physical iPhone scan of its practice QR while unplugged. These checks do not prove admission at an event. No venue acceptance test has been completed.
 7. **Publication decisions:** the final public listing remains subject to Light review; the owner-aligned permanent package identifier has been selected. Build and approval status should be checked in the Light dashboard.
 
 The preview's removal bug was fixed in 0.4.2 and retested on the phone: confirmation removed the practice ticket, returned to the shelf, and allowed the practice ticket to be restored and opened.
+
+On November 14, 2026, Light's dashboard still showed version 4 as pending approval and the tool as unpublished. The GitHub beta is the exact Light-built APK tested on the phone; Light's build and signature do not imply manual approval. See [VALIDATION.md](VALIDATION.md) for its provenance and completed checks.
